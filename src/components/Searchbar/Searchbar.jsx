@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
-import { SearchbarHeader } from './Searchbar.styled';
+import {
+  SearchbarStyled,
+  FormStyled,
+  SearchButtonStyled,
+  SearchButtonLabel,
+  SearchBtnSvg,
+  InputStyled,
+} from './Searchbar.styled';
+import { Formik } from 'formik';
+// import { FaSearch } from 'react-icons/fa';
 
 export class Searchbar extends Component {
-  state = {};
   render() {
     return (
-      <SearchbarHeader>
-        <form class="form">
-          <button type="submit" class="button">
-            <span class="button-label">Search</span>
-          </button>
+      <SearchbarStyled>
+        <Formik
+          initialValues={{ query: '' }}
+          onSubmit={(values, actions) => {
+            console.log(values);
+            console.log(actions);
+          }}
+        >
+          <FormStyled>
+            <SearchButtonStyled type="submit">
+              <SearchBtnSvg />
+              <SearchButtonLabel>Search</SearchButtonLabel>
+            </SearchButtonStyled>
 
-          <input
-            class="input"
-            type="text"
-            autocomplete="off"
-            autofocus
-            placeholder="Search images and photos"
-          />
-        </form>
-      </SearchbarHeader>
+            <InputStyled
+              type="text"
+              autoComplete="off"
+              autoFocus
+              placeholder="Search images and photos"
+              name="query"
+            />
+          </FormStyled>
+        </Formik>
+      </SearchbarStyled>
     );
   }
 }
