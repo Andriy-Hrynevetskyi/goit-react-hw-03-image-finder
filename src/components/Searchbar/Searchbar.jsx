@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { SearchbarHeader } from './Searchbar.styled';
 
 export class Searchbar extends Component {
   state = {};
   render() {
     return (
-      <header class="searchbar">
+      <SearchbarHeader>
         <form class="form">
           <button type="submit" class="button">
             <span class="button-label">Search</span>
@@ -18,7 +19,7 @@ export class Searchbar extends Component {
             placeholder="Search images and photos"
           />
         </form>
-      </header>
+      </SearchbarHeader>
     );
   }
 }
